@@ -33,7 +33,7 @@ Mainrobot initio [ motors , rot] pid ( 10,3000,1)
 //motorleft = Motor  [ gpiomotor pincw 3 pinccw 2  ]  position: LEFT
 //motorright = Motor  [ gpiomotor pincw 12 pinccw 13  ]  position: RIGHT
 //mgn1 = Magnetometer  [ magneto5883l x 172 y 34 z 0 ] private position: FRONT  
-//linefornt = Line   [ serial rate 9600 ]  position: FRONT    
+//linefront = Line   [ serial rate 9600 ]  position: FRONT    
 //distfront = Distance  [ serial rate 9600 ]  position: FRONT 
 //distleft  = Distance  [ serial rate 9600 ]  position: LEFT
 //distright = Distance  [ serial rate 9600 ]  position: RIGHT  
@@ -66,7 +66,6 @@ RobotBase
 motorleft  = Motor  [ simulated 0  ]  position: LEFT
 motorright = Motor  [ simulated 0  ]  position: RIGHT
 distFrontMock= Distance [ simulated 0  ] position: FRONT
-lineBottomMock = Line [ simulated 0 ] position: BOTTOM
 mgn1 = Magnetometer  [ simulated 0 ] private position: FRONT
 //COMPOSED   
 rot    = Rotation [ mgn1  ] private position: FRONT

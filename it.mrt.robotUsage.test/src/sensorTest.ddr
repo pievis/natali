@@ -1,16 +1,17 @@
-System testHalt -java8 :
+System testSensor -java8 :
 
-Robot testHaltRobot mock ip[host="localhost" port=8090 ] {
+Robot testSensorRobot mock ip[host="localhost" port=8090 ] {
 	/*
 	 * This test shows the execution of a simple 
 	 * plan that moves the robot forward for
 	 * 5 seconds and backwards for other 5 seconds.
-	 * When the robot receives an halt signal
-	 * it reacts by executing a plan that stops
+	 * When the robot percives a defined sensor data
+	 * it raises an event that reacts
+	 * by executing a plan that stops
 	 * the robot's movement.
 	 */
 	 
-	Event halt -simulAt 5000;
+	Event halt when distFrontMock val < 20;
 	
 	Plan stopNow
 		stop speed(0) angle(0) time(0) 
@@ -18,7 +19,7 @@ Robot testHaltRobot mock ip[host="localhost" port=8090 ] {
 	
 	Plan main normal
 		forward speed(20) angle(0) time(5000) 
-			react event halt -> stopNow;
+			react event halt -> stopNow ;
 		backward speed(20) angle(0) time(5000) 
 			react event halt -> stopNow
 }
