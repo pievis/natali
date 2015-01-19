@@ -1,0 +1,16 @@
+System testMovment -java8 :
+
+Robot testRobot mock ip[host="localhost" port=8090 ] {
+	
+	/*
+	 * This test shows the execution of a simple 
+	 * plan that moves the robot forward for
+	 * 5 seconds and backwards for other 5 seconds
+	 */
+	
+	Plan main normal
+		forward speed(20) angle(0) time(5000) ;
+		println("End action 1"); 
+		backward speed(20) angle(0) time(5000) ;
+		println("End action 2")
+}
