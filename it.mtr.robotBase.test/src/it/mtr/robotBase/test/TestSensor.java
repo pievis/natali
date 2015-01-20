@@ -18,25 +18,24 @@ import org.junit.Test;
 public class TestSensor {
 
 	private ISensor<ISensorData> sensor;
-	
+
 	@Before
-	public void setup(){
+	public void setup() {
 		IPosition position = new Position(PositionValue.FRONT);
 		sensor = new SensorMock(position, SensorType.DISTANCE);
 	}
-	
+
 	@Test
 	public void testSensorData() {
 		ISensorData data = sensor.getData();
 		assertNotNull(data);
 	}
-	
-//	@Test
-//	public void testObserver(){
-//		SensorObserverMock observer = new SensorObserverMock();
-//		sensor.addObserver(observer);
-//		assertTrue(condition);
-//	}
-//	
-	
+
+	@Test
+	public void testSensorRep() {
+		String expRep = sensor.getComponentType().getName().toLowerCase() + "."
+				+ sensor.getPosition().getDefStringRep();
+
+		assertTrue("expectedStrTest", expRep.equals(sensor.getDefStringRep()));
+	}
 }
