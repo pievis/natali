@@ -2,6 +2,7 @@ package it.mtr.robotBase.test;
 
 import static org.junit.Assert.*;
 import it.mtr.robotBase.mock.SensorMock;
+import it.mtr.robotBase.mock.SensorObserverMock;
 import it.unibo.iot.models.sensorData.IPosition;
 import it.unibo.iot.models.sensorData.ISensorData;
 import it.unibo.iot.models.sensorData.Position;
@@ -25,10 +26,17 @@ public class TestSensor {
 	}
 	
 	@Test
-	public void TestSensorData() {
+	public void testSensorData() {
 		ISensorData data = sensor.getData();
 		assertNotNull(data);
 	}
 	
+//	@Test
+//	public void testObserver(){
+//		SensorObserverMock observer = new SensorObserverMock();
+//		sensor.addObserver(observer);
+//		assertTrue(condition);
+//	}
+//	
 	
 }

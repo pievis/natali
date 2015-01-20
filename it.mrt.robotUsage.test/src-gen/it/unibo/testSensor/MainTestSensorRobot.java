@@ -51,6 +51,7 @@ private	int userCmd;
 	 			server.start();
 	 		}
 	 		new UserSensorStreamSetter("sensstrmset",  outView, utUsb );
+			new EventSimulator(outView,"prova1",1000).activate(SituatedSysKb.executorManyThread);
 openNashorn();
  		} catch (Exception e) {
  			e.printStackTrace();

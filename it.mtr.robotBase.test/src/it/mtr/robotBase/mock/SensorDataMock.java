@@ -10,12 +10,12 @@ public class SensorDataMock implements ISensorData {
 
 	@Override
 	public String getName() {
-		return "sensor(mock)";
+		return "mockdata";
 	}
 
 	@Override
 	public String getDefStringRep() {
-		return "sensor(mock,value)";
+		return getName()+"(data)";
 	}
 
 	@Override

@@ -11,7 +11,9 @@ Robot testSensorRobot mock ip[host="localhost" port=8090 ] {
 	 * the robot's movement.
 	 */
 	 
-	Event halt when distFrontMock val < 20;
+	Event halt when distanceRadar val < 20;
+	Event prova1 -simulAt 1000;
+	Event usercmd;
 	
 	Plan stopNow
 		stop speed(0) angle(0) time(0) 
