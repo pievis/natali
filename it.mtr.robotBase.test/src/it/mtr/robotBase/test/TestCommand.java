@@ -23,7 +23,7 @@ public class TestCommand {
 		String cmdRepStart = cmdName+"(";
 		String cmdRepEnd = ")";
 		assertTrue("goodStartRep", command.getDefStringRep().startsWith(cmdRepStart));
-		assertTrue("goodStartRep", command.getDefStringRep().endsWith(cmdRepEnd));
+		assertTrue("goodEndRep", command.getDefStringRep().endsWith(cmdRepEnd));
 	}
 	
 }
