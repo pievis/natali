@@ -1,0 +1,20 @@
+System robotAreaSystem -java8 : 
+Context userCtx ip[host="localhost"port=8010]{
+	Actor userActor;
+}
+Robot robotArea mock ip[host="localhost"port=8090]{
+	
+	Event halt;
+	
+	Plan stopNow
+		stop speed(0) angle(0) time(10);
+		println("stopped moving")
+	
+	Plan startPlan normal
+		forward speed(50) angle(0) time(2500)
+			react event halt -> stopNow;
+		backward speed(50) angle(0) time(2500)
+			react event halt -> stopNow;
+		forward speed(50) angle(0) time(5000) 
+			react event halt -> stopNow
+}
