@@ -2,10 +2,16 @@ System robotAreaSystem -java8 :
 Context userCtx ip[host="localhost"port=8010]{
 	Actor userActor;
 }
-Robot robotArea mock ip[host="localhost"port=8090]{
+Robot robotArea mock ip[host="localhost"port=8070]{
 	
+	//Events
 	Event halt;
+	Event lineDetected when lineSensorMock val > 20;
+	Event lineUndetected when lineSensorMock val < 5;
+	//Handlers
+	Task evAreaTask for lineDetected, lineUndetected;
 	
+	//Plans
 	Plan stopNow
 		stop speed(0) angle(0) time(10);
 		println("stopped moving")
