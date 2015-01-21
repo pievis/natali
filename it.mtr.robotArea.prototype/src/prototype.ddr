@@ -23,4 +23,5 @@ Robot robotArea mock ip[host="localhost"port=8070]{
 			react event halt -> stopNow;
 		forward speed(50) angle(0) time(5000) 
 			react event halt -> stopNow
+		repeatPlan 5
 }
