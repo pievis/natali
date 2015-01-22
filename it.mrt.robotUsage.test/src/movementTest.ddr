@@ -11,6 +11,10 @@ Robot testRobot mock ip[host="localhost" port=8090 ] {
 	Plan main normal
 		forward speed(20) angle(0) time(5000) ;
 //		println("End action 1"); 
-		backward speed(20) angle(0) time(5000) 
+		backward speed(20) angle(0) time(5000) ; 
 //		println("End action 2")
+		left speed(20) angle(0) time(5000) ; 
+//		println("End action 3")
+		right speed(20) angle(0) time(5000) 
+//		println("End action 4")
 }

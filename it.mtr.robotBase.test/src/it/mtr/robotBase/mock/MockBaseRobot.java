@@ -1,5 +1,7 @@
 package it.mtr.robotBase.mock;
 
+import org.omg.CosNaming.IstringHelper;
+
 import it.unibo.iot.executors.baseRobot.IBaseRobot;
 import it.unibo.iot.models.commands.baseRobot.IBaseRobotCommand;
 import it.unibo.iot.models.sensorData.IPosition;
@@ -29,7 +31,9 @@ public class MockBaseRobot implements IBaseRobot {
 
 	@Override
 	public void execute(IBaseRobotCommand command) {
-		// TODO Auto-generated method stub
+		if(command instanceof IncBaseRobotCommandMock){
+			((IncBaseRobotCommandMock) command).getCounter().inc();
+		}
 		mockVar = true;
 	}
 	

@@ -17,11 +17,10 @@ Robot robotArea mock ip[host="localhost"port=8070]{
 		println("stopped moving")
 	
 	Plan startPlan normal
-		forward speed(50) angle(0) time(2500)
+		forward speed(50) angle(0) time(2000)
 			react event halt -> stopNow;
-		backward speed(50) angle(0) time(2500)
+		backward speed(50) angle(0) time(2000)
 			react event halt -> stopNow;
 		forward speed(50) angle(0) time(5000) 
 			react event halt -> stopNow
-		repeatPlan 5
 }
