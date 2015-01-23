@@ -6,6 +6,10 @@ import it.unibo.robotUsage.naive.SensorObserver;
 
 public class SensorObserverMock extends SensorObserver<ISensorData> {
 
+	/*
+	 * This observer mock simply stores the notifyed data
+	 */
+	
 	private ISensorData data;
 	
 	public SensorObserverMock() {
@@ -14,10 +18,11 @@ public class SensorObserverMock extends SensorObserver<ISensorData> {
 	
 	@Override
 	public void notify(ISensorData data) {
+		this.data = data;
 		super.notify(data);
 	}
 	
-	public ISensorData getCurVal(){
+	public ISensorData getData(){
 		return data;
 	}
 }

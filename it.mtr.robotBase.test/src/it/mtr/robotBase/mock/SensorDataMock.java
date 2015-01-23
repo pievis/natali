@@ -8,6 +8,8 @@ import it.unibo.iot.models.sensorData.SensorType;
 
 public class SensorDataMock implements ISensorData {
 
+	String data = "data";
+
 	@Override
 	public String getName() {
 		return "mockdata";
@@ -15,7 +17,7 @@ public class SensorDataMock implements ISensorData {
 
 	@Override
 	public String getDefStringRep() {
-		return getName()+"(data)";
+		return getName() + "(" + data + ")";
 	}
 
 	@Override
@@ -28,4 +30,11 @@ public class SensorDataMock implements ISensorData {
 		return SensorType.DISTANCE;
 	}
 
+	public SensorDataMock(String data) {
+		this.data = data;
+	}
+
+	public SensorDataMock() {
+
+	}
 }
