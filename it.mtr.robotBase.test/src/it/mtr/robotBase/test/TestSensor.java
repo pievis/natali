@@ -8,6 +8,7 @@ import it.unibo.iot.models.sensorData.IPosition;
 import it.unibo.iot.models.sensorData.ISensorData;
 import it.unibo.iot.models.sensorData.Position;
 import it.unibo.iot.models.sensorData.PositionValue;
+import it.unibo.iot.models.sensorData.SensorData;
 import it.unibo.iot.models.sensorData.SensorType;
 import it.unibo.iot.sensor.ILogicalSensor;
 import it.unibo.iot.sensor.ISensor;
@@ -33,10 +34,12 @@ public class TestSensor {
 	@Test
 	public void testSensorData() {
 		ISensorData data = new SensorDataMock("testData");
-		assertNotNull(data);
+		assertNotNull(data.getDefStringRep());
 		logicalSensor.setData(data);
-		String str1 = sensor.getData().getDefStringRep();
+		ISensorData sensorData = sensor.getData();
+		String str1 = sensorData.getDefStringRep();
 		String str2 = data.getDefStringRep();
+		assertNotNull(sensorData);
 		assertTrue("getTest", str1.equals(str2));
 	}
 
