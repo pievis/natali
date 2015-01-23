@@ -10,6 +10,7 @@ import it.unibo.iot.models.sensorData.PositionValue;
 import it.unibo.iot.models.sensorData.SensorType;
 import it.unibo.iot.sensor.ISensor;
 import it.unibo.iot.sensor.ISensorDevice;
+import it.unibo.iot.sensor.ISensorObservable;
 import it.unibo.iot.sensor.Sensor;
 
 import org.junit.Before;
@@ -32,10 +33,14 @@ public class TestSensor {
 	}
 
 	@Test
+	public void testObserver() {
+		ISensorObservable<ISensorData> observer; 
+	}
+
+	@Test
 	public void testSensorRep() {
 		String expRep = sensor.getComponentType().getName().toLowerCase() + "."
 				+ sensor.getPosition().getDefStringRep();
-
 		assertTrue("expectedStrTest", expRep.equals(sensor.getDefStringRep()));
 	}
 }
