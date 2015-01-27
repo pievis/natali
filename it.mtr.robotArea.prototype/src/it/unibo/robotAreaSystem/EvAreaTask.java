@@ -35,16 +35,16 @@ public class EvAreaTask extends EvAreaTaskSupport {
 		if(curEvent != null)
 			handleEvent(curEvent);
 		
-		String[] events = new String[] { "lineDetected" };
+		String[] events = new String[] { "lineDetected", "lineUndetected" };
 		String[] nextStates = null;
 		if (curstate.equals(states[0])) {
-			nextStates = new String[] { states[1] };
+			nextStates = new String[] { states[1], curstate };
 		}
 		if (curstate.equals(states[2])) {
-			nextStates = new String[] { states[3] };
+			nextStates = new String[] { states[3], curstate };
 		}
 
-//		showMsg("nullState " + curstate + " -> " + nextStates[0]);
+		showMsg("nullState " + curstate + " -> " + nextStates[0]);
 
 		transitions(events, nextStates);
 	}
@@ -54,16 +54,16 @@ public class EvAreaTask extends EvAreaTaskSupport {
 		curEvent = this.getEventItem();
 		handleEvent(curEvent);
 
-		String[] events = new String[] { "lineUndetected" };
+		String[] events = new String[] { "lineUndetected", "lineDetected" };
 		String[] nextStates = null;
 		if (curstate.equals(states[1])) {
-			nextStates = new String[] { states[2] };
+			nextStates = new String[] { states[2], curstate };
 		}
 		if (curstate.equals(states[3])) {
-			nextStates = new String[] { states[0] };
+			nextStates = new String[] { states[0], curstate };
 		}
 
-//		showMsg("stateHandleEvent " + curstate + " -> " + nextStates[0]);
+		showMsg("stateHandleEvent " + curstate + " -> " + nextStates[0]);
 
 		transitions(events, nextStates);
 	}

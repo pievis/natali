@@ -6,8 +6,9 @@ Robot robotArea mock ip[host="localhost"port=8070]{
 	
 	//Events
 	Event halt;
-	Event lineDetected when lineSensorMock val > 20;
-	Event lineUndetected when lineSensorMock val < 5;
+	Event lineDetected when lineSensorMock;
+	Event lineUndetected when lineSensorMock;
+	Event obstacle when distFrontMock val < 20;
 	//Handlers
 	Task evAreaTask for lineDetected, lineUndetected;
 	
