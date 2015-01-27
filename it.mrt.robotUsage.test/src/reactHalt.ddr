@@ -1,6 +1,6 @@
 System testHalt -java8 :
-
-Robot testHaltRobot mock ip[host="localhost" port=8090 ] {
+ 
+Robot testHaltRobot talos ip[host="localhost" port=8090 ] {
 	/*
 	 * This test shows the execution of a simple 
 	 * plan that moves the robot forward for
@@ -10,15 +10,15 @@ Robot testHaltRobot mock ip[host="localhost" port=8090 ] {
 	 * the robot's movement.
 	 */
 	 
-	Event halt -simulAt 5000;
+	Event halt; //-simulAt 7000;
 	
 	Plan stopNow
 		stop speed(0) angle(0) time(0) 
 		//println("End of movment")
 	
 	Plan main normal
-		forward speed(20) angle(0) time(5000) 
+		forward speed(100) angle(0) time(5000) 
 			react event halt -> stopNow;
-		backward speed(20) angle(0) time(5000) 
+		backward speed(100) angle(0) time(5000) 
 			react event halt -> stopNow
 }

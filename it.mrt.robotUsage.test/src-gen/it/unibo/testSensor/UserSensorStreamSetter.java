@@ -13,8 +13,8 @@ private  Action1<String> halt_action = new Action1<String>() {
 		@Override
 		public void call(String s) {
  		try {
- 			//distance(43,forward, front)
- 			println("halt_action: " + s);
+ 			//s=distance(43,forward, front)
+ 			//println("halt_action: " + s);
  			Struct st = (Struct) Term.createTerm(s);
  			int d = Integer.parseInt(""+st.getArg(0));
  			if( d < 20 )
