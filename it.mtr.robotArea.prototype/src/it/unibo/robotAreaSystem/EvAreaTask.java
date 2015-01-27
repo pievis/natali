@@ -2,6 +2,7 @@ package it.unibo.robotAreaSystem;
 
 import it.unibo.contactEvent.interfaces.IEventItem;
 import it.unibo.contactEvent.platform.ContactEventPlatform;
+import it.unibo.iot.baseRobot.configurator.Configurator;
 
 public class EvAreaTask extends EvAreaTaskSupport {
 
@@ -71,10 +72,11 @@ public class EvAreaTask extends EvAreaTaskSupport {
 	@Override
 	protected void handleEvent(IEventItem curEvent) {
 		printEvent(curEvent);
+		String name = this.myctx.getName();
 		if (curstate.equals(states[2]))
-			raiseEventArea("Enter", curEvent.getMsg());
+			raiseEventArea("Enter", name);
 		if (curstate.equals(states[0]))
-			raiseEventArea("Exit", curEvent.getMsg());
+			raiseEventArea("Exit", name);
 	}
 
 	private void raiseEventArea(String msg, String name) {
