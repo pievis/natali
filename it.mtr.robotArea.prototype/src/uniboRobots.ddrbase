@@ -55,7 +55,24 @@ Mainrobot initio [ motors , rot] pid ( 10,3000,1)
 ////COMPOSED
 //motors = Actuators [ motorleft , motorright  ] private position: BOTTOM
 //Mainrobot smilzo  [ motors ]   
-//;  
+//; 
+
+/*
+ * ===================================
+ * Talos
+ * ===================================
+ */
+RobotBase     
+//BASIC                         
+motorleft = Motor  [ gpiomotor pincw 27 pinccw 17  ]  position: LEFT
+motorright = Motor  [ gpiomotor pincw 24 pinccw 23  ]  position: RIGHT  
+linefront = Line   [ gpioswitch pin 2 activelow ]  position: FRONT    
+distfront = Distance  [ sonarhcsr04 pintrig 18 pinecho 4 ]  position: FRONT  
+//COMPOSED
+motors = Actuators [ motorleft , motorright  ] private position: BOTTOM
+Mainrobot talos  [ motors,rot  ] pid (6,250,1)  
+;
+ 
 /* 
  * ===================================
  * mock
