@@ -6,8 +6,8 @@ Robot robotArea talos ip[host="192.168.137.2"port=8070]{
 	
 	//Events
 	Event halt;
-	Event lineDetected when lineSensorMock arg "lineDetected";
-	Event lineUndetected when lineSensorMock arg "lineLeft";
+	Event lineDetected when lineBack arg "lineDetected";
+	Event lineUndetected when lineBack arg "lineLeft";
 	//Event obstacle when distFrontMock val < 20;
 	//Handlers
 	Task evAreaTask for lineDetected, lineUndetected;
