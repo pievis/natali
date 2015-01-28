@@ -1,0 +1,36 @@
+System robotAreaSystem -java8 : 
+Context userCtx ip[host="localhost"port=8010]{
+	Actor userActor;
+}
+Robot robotArea mock ip[host="localhost"port=8070]{
+	
+	//Events
+	Event halt;
+	Event lineDetected when lineSensorMock arg "lineDetected";
+	Event lineUndetected when lineSensorMock arg "lineLeft";
+	Event obstacle when distFrontMock val < 20;
+	//Handlers
+	Task evAreaTask for lineDetected, lineUndetected;
+		//modifies the inArea condition
+		
+	//Plans
+	Plan stopNow
+		stop speed(0) angle(0) time(10);
+		println("stopped moving")
+		
+	Plan doOther
+		[ inarea ] println("Start new behaviour");
+		[ inarea ] stop speed(0) angle(0) time(10);
+		[ inarea ] sound time(1000) file("tada.wav")
+	
+	Plan startPlan normal
+		forward speed(50) angle(0) time(2000)
+			react event halt -> stopNow
+			or event obstacle -> doOther;
+		backward speed(50) angle(0) time(2000)
+			react event halt -> stopNow
+			or event obstacle -> doOther;
+		forward speed(50) angle(0) time(5000) 
+			react event halt -> stopNow
+			or event obstacle -> doOther
+}

@@ -30,11 +30,17 @@ public class UserActor extends QActor {
 		case "halt":
 			emitEvent("halt", "robotArea");
 			break;
+		case "h":
+			emitEvent("halt", "robotArea");
+			break;
 		case "ld":
 			emitEvent("lineDetected", "robotArea");
 			break;
 		case "lud":
 			emitEvent("lineUndetected", "robotArea");
+			break;
+		case "obs":
+			emitEvent("obstacle", "robotArea");
 			break;
 
 		default:
