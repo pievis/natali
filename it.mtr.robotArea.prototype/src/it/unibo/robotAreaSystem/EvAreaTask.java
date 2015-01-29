@@ -3,6 +3,7 @@ package it.unibo.robotAreaSystem;
 import it.unibo.contactEvent.interfaces.IEventItem;
 import it.unibo.contactEvent.platform.ContactEventPlatform;
 import it.unibo.iot.baseRobot.configurator.Configurator;
+import it.unibo.robotActor.utils.RobotSysKb;
 
 public class EvAreaTask extends EvAreaTaskSupport {
 
@@ -73,10 +74,25 @@ public class EvAreaTask extends EvAreaTaskSupport {
 	protected void handleEvent(IEventItem curEvent) {
 		printEvent(curEvent);
 		String name = this.myctx.getName();
-		if (curstate.equals(states[2]))
+		if (curstate.equals(states[2])){
 			raiseEventArea("Enter", name);
-		if (curstate.equals(states[0]))
+			//add data from database
+			RobotSysKb.addRule("inarea");
+			printCondition("inarea");
+		}
+		if (curstate.equals(states[0])){
 			raiseEventArea("Exit", name);
+			//remove data from database
+			RobotSysKb.removeRule("inarea");
+			printCondition("inarea");
+		}
+	}
+	
+	private void printCondition(String cname)
+	{
+		String goon = RobotSysKb.getGuardPredicate(cname);
+		showMsg( " reset condition -> " + goon );				 
+		showMsg( "--------------------------------------------------" );
 	}
 
 	private void raiseEventArea(String msg, String name) {
