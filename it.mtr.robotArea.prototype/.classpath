@@ -30,5 +30,6 @@
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/http/mockito-all-1.9.5.jar"/>
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/http/nanoHTTPD.jar"/>
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/pi4j/pi4j-core.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/it.mtr.devices"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -21,7 +21,7 @@ Robot robotArea mock ip[host="localhost"port=8070]{
 		//this action asks a photographer to take a photo
 		//the argument specifies the the receiver of
 		//the photo file. 
-
+		
 	//Plans
 	Plan stopNow
 		stop speed(0) angle(0) time(10);
