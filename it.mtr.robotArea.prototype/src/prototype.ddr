@@ -2,7 +2,7 @@ System robotAreaSystem -java8 :
 Context userCtx ip[host="localhost"port=8010]{
 	Actor userActor;
 }
-Robot robotArea talos ip[host="192.168.137.2"port=8070]{
+Robot robotArea talos ip[host="192.168.43.226"port=8070]{
 	
 	//Events
 	Event halt;

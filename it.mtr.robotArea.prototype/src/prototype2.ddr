@@ -2,6 +2,11 @@ System robotAreaSystem -java8 :
 Context userCtx ip[host="localhost"port=8010]{
 	Actor userActor;
 }
+Context photographerCtx ip[host="localhost"port=8020]{
+//	Event takePhoto;
+//	EventHandler photoHandler for takePhoto;
+	Actor photographerActor;
+}
 Robot robotArea mock ip[host="localhost"port=8070]{
 	
 	//Events
@@ -12,16 +17,22 @@ Robot robotArea mock ip[host="localhost"port=8070]{
 	//Handlers
 	Task evAreaTask for lineDetected, lineUndetected;
 		//modifies the inArea condition
-		
+	Action askForPhoto maxtime(2000);
+		//this action asks a photographer to take a photo
+		//the argument specifies the the receiver of
+		//the photo file. 
+
 	//Plans
 	Plan stopNow
 		stop speed(0) angle(0) time(10);
+		sound time(1000) file("tada.wav");
 		println("stopped moving")
 		
 	Plan doOther
-		[ inarea ] println("Start new behaviour");
-		[ inarea ] stop speed(0) angle(0) time(10);
-		[ inarea ] sound time(1000) file("tada.wav")
+		 [inarea] println("Start new behaviour");
+		 [inarea] stop speed(0) angle(0) time(10);
+		 [inarea] sound time(1000) file("tada.wav");
+		 [inarea] execAction askForPhoto("localhost")
 	
 	Plan startPlan normal
 		forward speed(50) angle(0) time(2000)
