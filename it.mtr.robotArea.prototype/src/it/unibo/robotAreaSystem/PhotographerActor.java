@@ -46,7 +46,7 @@ public class PhotographerActor extends QActor {
 				println("action: " + action + " dest: " + dest);
 				//send a reply
 				sendMsg("askphoto", "assistant", ActorContext.answer, "ok");
-				println("Msg inviato: ok");
+				println("---------\nMsg inviato: ok");
 //				photoCount++;
 			}catch(Exception e){
 				e.printStackTrace();

@@ -47,12 +47,22 @@ public class AskForPhoto extends AskForPhotoSupport {
 //		Invia una richiesta e aspetta una risposta
 		assistant.sendMsg("askphoto", "photographeractor", ActorContext.request, "doAction(takephoto," + dest + ")");
 		//suspended if no reply?
-		this.println("In attesa di una risposta dal photographer");
-		String reply = assistant.receiveMsg();
-		println("AskForPhoto] " + reply);
-		if(reply.startsWith("error")){
-			println("Non è stato possibile scattare la foto");
-		}
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				println("In attesa di una risposta dal photographer");
+				String reply = null;
+				try {
+					reply = assistant.receiveMsg();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				println("AskForPhoto] " + reply);
+				if(reply == null || reply.startsWith("error")){
+					println("Non è stato possibile scattare la foto");
+				}
+			}
+		}).start();
 		return null;
 	}
 	
