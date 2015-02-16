@@ -12,13 +12,25 @@ import it.unibo.robotActor.utils.RobotSysKb;
 
 public class AskForPhoto extends AskForPhotoSupport {
 
-	QActor rActor;
+	QActor assistant;
+	ActorContext actx;
 	IContactEventPlatform platform;
 	
 	public AskForPhoto(String name, boolean cancompensate, String terminationEvId, String answerEvId,
 			IOutputView outView, long maxduration) throws Exception {
 		super(name, cancompensate, terminationEvId, answerEvId, outView, maxduration);
-		rActor = (QActor) RobotSysKb.getRobotActor(); //get robotActor
+//		rActor = (QActor) RobotSysKb.getRobotActor(); //get robotActor
+		
+		actx = RobotSysKb.robotActorCtx;
+		assistant = new QActor("assistant", actx, this.outView) {
+			
+			@Override
+			protected void doJob() throws Exception {
+				println(getName() + " started...");
+			}
+		};
+		
+//		rActor = MainRobotMessageDispatcherCtx.getPhotoAssistant();
 //		platform = ContactEventPlatform.getPlatform();
    	}
 	
@@ -33,10 +45,10 @@ public class AskForPhoto extends AskForPhotoSupport {
 //		this.println("INVIO EseGuITO");
 		
 //		Invia una richiesta e aspetta una risposta
-		rActor.sendMsg("askphoto", "photographeractor", ActorContext.request, "doAction(takephoto," + dest + ")");
+		assistant.sendMsg("askphoto", "photographeractor", ActorContext.request, "doAction(takephoto," + dest + ")");
 		//suspended if no reply?
 		this.println("In attesa di una risposta dal photographer");
-		String reply = rActor.receiveMsg();
+		String reply = assistant.receiveMsg();
 		println("AskForPhoto] " + reply);
 		if(reply.startsWith("error")){
 			println("Non è stato possibile scattare la foto");

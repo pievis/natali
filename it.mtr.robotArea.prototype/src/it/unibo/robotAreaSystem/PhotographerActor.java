@@ -45,11 +45,12 @@ public class PhotographerActor extends QActor {
 				doAction(action, dest);
 				println("action: " + action + " dest: " + dest);
 				//send a reply
-				sendMsg("askphoto", "robotActor", ActorContext.answer, "ok");
+				sendMsg("askphoto", "assistant", ActorContext.answer, "ok");
+				println("Msg inviato: ok");
 //				photoCount++;
 			}catch(Exception e){
 				e.printStackTrace();
-				sendMsg("askphoto", "robotActor", ActorContext.answer, "error");
+				sendMsg("askphoto", "assistant", ActorContext.answer, "error");
 				println("Errore nell'eseguire la foto");
 			}
 		}
