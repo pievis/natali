@@ -64,10 +64,10 @@ Mainrobot initio [ motors , rot] pid ( 10,3000,1)
  */
 RobotBase     
 //BASIC                         
-motorleft = Motor  [ gpiomotor pincw 0 pinccw 2  ]  position: LEFT
-motorright = Motor  [ gpiomotor pincw 5 pinccw 4  ]  position: RIGHT  
-lineBack = Line   [ gpioswitch pin 8 activelow ]  position: BACK    
-//distfront = Distance  [ sonarhcsr04 pintrig 18 pinecho 4 ]  position: FRONT  
+motorleft = Motor  [ gpiomotor pincw 2 pinccw 0  ]  position: LEFT
+motorright = Motor  [ gpiomotor pincw 4 pinccw 5  ]  position: RIGHT  
+lineFront = Line   [ gpioswitch pin 8 activelow ]  position: FRONT    
+distFront = Distance  [ sonarhcsr04 pintrig 1 pinecho 3 ]  position: FRONT  
 //COMPOSED
 motors = Actuators [ motorleft , motorright  ] private position: BOTTOM
 Mainrobot talos  [ motors,rot  ] pid (6,250,1)  

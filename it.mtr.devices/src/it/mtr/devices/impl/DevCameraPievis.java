@@ -5,8 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import it.mtr.devices.interfaces.IDevCameraImpl;
+import it.mtr.devices.interfaces.IDevCameraPievis;
 
-public class DevCameraPievis extends DevCameraImpl implements IDevCameraImpl{
+public class DevCameraPievis extends DevCameraImpl implements IDevCameraPievis{
 	String storingPath;
 	int shoots = 0;
 	
