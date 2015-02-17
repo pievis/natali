@@ -78,21 +78,23 @@ public class EvAreaTask extends EvAreaTaskSupport {
 			raiseEventArea("Enter", name);
 			//add data from database
 			RobotSysKb.addRule("inarea");
-			printCondition("inarea");
+//			printCondition("inarea");
 		}
 		if (curstate.equals(states[0])){
 			raiseEventArea("Exit", name);
 			//remove data from database
 			RobotSysKb.removeRule("inarea");
-			printCondition("inarea");
+//			printCondition("inarea");
 		}
+		printCondition("inarea");
 	}
 	
 	private void printCondition(String cname)
 	{
 		String goon = RobotSysKb.getGuardPredicate(cname);
-		showMsg( " reset condition -> " + goon );				 
-		showMsg( "--------------------------------------------------" );
+		showMsg( "***************************************************" );
+		showMsg( " inarea condition -> " + goon );				 
+		showMsg( "***************************************************" );
 	}
 
 	private void raiseEventArea(String msg, String name) {

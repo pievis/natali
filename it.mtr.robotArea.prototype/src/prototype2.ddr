@@ -30,7 +30,7 @@ Robot robotArea mock ip[host="localhost"port=8070]{
 		 [inarea] println("Start new behaviour");
 		 [inarea] stop speed(0) angle(0) time(10);
 		 [inarea] sound time(1000) file("tada.wav");
-		 [inarea] execAction askForPhoto("localhost")
+		  execAction askForPhoto("localhost")
 	
 	Plan startPlan normal
 		forward speed(50) angle(0) time(2000)

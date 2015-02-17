@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import it.mtr.devices.DevCamera;
 import it.mtr.devices.impl.DevCameraLinux;
@@ -37,12 +38,15 @@ public class PhotographerActor extends QActor {
 				String msg = receiveMsg();
 //				msg(askphoto,request,robotactor,photographeractor,'doAction(takephoto,localhost)',1)
 				IActorMessage m = new QActorMessage(msg);
-				msg = m.msgContent();
+				msg = m.msgContent().replace("\'", "");
 				println(getName() + " received:" + msg);
 				//elaborate the msg
-				String mTxt = msg.split("'doAction\\(")[1];
-				String action = mTxt.split(",")[0];
-				String dest = mTxt.split(",")[1].replace(")'", "");
+//				String mTxt = msg.split("'doAction\\(")[1];
+//				String action = mTxt.split(",")[0];
+//				String dest = mTxt.split(",")[1].replace(")'", "");
+				Struct msgStruct = (Struct) Term.createTerm(msg);
+				String action = msgStruct.getArg(0).toString();
+				String dest = msgStruct.getArg(1).toString();
 				doAction(action, dest);
 				println("action: " + action + " dest: " + dest);
 				//send a reply
