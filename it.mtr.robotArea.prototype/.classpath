@@ -7,7 +7,6 @@
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/unibo/baseRobotUsage.jar"/>
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/unibo/CtxSonarSender.jar"/>
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/unibo/infoReply.jar"/>
-	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/unibo/qactors.jar"/>
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/unibo/qevstreams.jar"/>
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/unibo/tuprolog.jar"/>
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/unibo/uniboEnvBaseAwt.jar"/>
@@ -31,5 +30,6 @@
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/http/nanoHTTPD.jar"/>
 	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/pi4j/pi4j-core.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/it.mtr.devices"/>
+	<classpathentry kind="lib" path="/it.unibo.iss.libs/libs/unibo/qactorMRT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 import alice.tuprolog.Term;
 import it.mtr.devices.DevCamera;
+import it.mtr.devices.impl.DevCameraLinux;
 import it.mtr.devices.impl.DevCameraPievis;
 import it.mtr.devices.interfaces.IDevCamera;
 import it.mtr.devices.interfaces.IDevCameraImpl;
@@ -23,7 +24,7 @@ public class PhotographerActor extends QActor {
 	public PhotographerActor(String actorId, ActorContext myCtx,
 			IOutputView outView) {
 		super(actorId, myCtx, outView);
-		IDevCameraImpl camImpl = new DevCameraPievis("cam0", "");
+		IDevCameraImpl camImpl = new DevCameraLinux("cam0", "");
 		camera = new DevCamera();
 		camera.setImpl(camImpl);
 	}

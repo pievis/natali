@@ -17,7 +17,7 @@ public class DevCameraLinux extends DevCameraImpl implements IDevCameraLinux {
 
 	@Override
 	public void getImage() {
-		String command = "streamer -f jpeg -o image" + shootCount + ".jpeg";
+		String command = "fswebcam -s lights=on image" + shootCount + ".jpg";
 
 		Process p; //create the runtime enviroment
 		try {
